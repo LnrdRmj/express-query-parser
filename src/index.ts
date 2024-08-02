@@ -61,7 +61,7 @@ export const parse = (target: ParsedQuery, options: Options) : ParsedQuery => {
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export const queryParser = (options: Options) => (req: Request, res: Response, next: NextFunction) => {
-  req.query = parse(req.query, mergeOptions(options))
+export const queryParser = (options?: Options) => (req: Request, res: Response, next: NextFunction) => {
+  req.query = parse(req.query, mergeOptions(options || {}))
   next()
 }
